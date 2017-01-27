@@ -221,7 +221,7 @@ typedef struct
 
 /******************************************************************************/
 /*                                                                            */
-/*                                RPCM                                        */
+/*                                PRCM                                        */
 /*                                                                            */
 /******************************************************************************/
 
@@ -297,7 +297,7 @@ typedef struct
   __IO  uint32_t PWRPROFSTAT;                   /*!< Power Profiler Register                                            */
   __I   uint32_t RESERVED12[16];
   __IO  uint32_t RAMRETEN;                      /*!< Memory Retention Control                                           */
-} RPCM_Type;
+} PRCM_Type;
 
 
 /******************************************************************************/
@@ -435,7 +435,7 @@ typedef struct
   __I   uint32_t FCFG_BNK_TYPE;                 /*!< Internal                                                           */
   __I   uint32_t RESERVED20;
   __I   uint32_t FCFG_B_START[8];               /*!< Internal                                                           */
-  __I  uint32_t FCFG_B0_SSIZE0;                /*!< Internal                                                           */
+  __I   uint32_t FCFG_B0_SSIZE0;                /*!< Internal                                                           */
 } FLASH_Type;
 
 
@@ -1260,6 +1260,422 @@ typedef struct
 #define uDMA0                                   ((uDMA_Type*)uDMA0_BASE)
 #define VIMS                                    ((VIMS_Type*)VIMS_BASE)
 #define WDT                                     ((WDT_Type*)WDT_BASE)
+
+
+/******************************************************************************/
+/*                         Peripheral Registers_Bits_Definition               */
+/******************************************************************************/
+
+/******************************************************************************/
+/*                                                                            */
+/*                                  PRCM                                      */
+/*                                                                            */
+/******************************************************************************/
+
+/*************  Bit definition for PRCM_INFRCLKDIVR register  *****************/
+#define PRCM_INFRCLKDIVR_RATIO                  (0x3ul << 0)
+#define PRCM_INFRCLKDIVR_RATIO_1                (0x0ul << 0)
+#define PRCM_INFRCLKDIVR_RATIO_2                (0x1ul << 0)
+#define PRCM_INFRCLKDIVR_RATIO_8                (0x2ul << 0)
+#define PRCM_INFRCLKDIVR_RATIO_32               (0x3ul << 0)
+
+
+/*************  Bit definition for PRCM_INFRCLKDIVS register  *****************/
+#define PRCM_INFRCLKDIVS_RATIO                  (0x3ul << 0)
+#define PRCM_INFRCLKDIVS_RATIO_1                (0x0ul << 0)
+#define PRCM_INFRCLKDIVS_RATIO_2                (0x1ul << 0)
+#define PRCM_INFRCLKDIVS_RATIO_8                (0x2ul << 0)
+#define PRCM_INFRCLKDIVS_RATIO_32               (0x3ul << 0)
+
+
+/*************  Bit definition for PRCM_INFRCLKDIVDS register  ****************/
+#define PRCM_INFRCLKDIVDS_RATIO                 (0x3ul << 0)
+#define PRCM_INFRCLKDIVDS_RATIO_1               (0x0ul << 0)
+#define PRCM_INFRCLKDIVDS_RATIO_2               (0x1ul << 0)
+#define PRCM_INFRCLKDIVDS_RATIO_8               (0x2ul << 0)
+#define PRCM_INFRCLKDIVDS_RATIO_32              (0x3ul << 0)
+
+
+/*************  Bit definition for PRCM_VDCTL register  ***********************/
+#define PRCM_VDCTL_MCU_VD                       (0x1ul << 2)
+#define PRCM_VDCTL_ULDO                         (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_CLKLOADCTL register  ******************/
+#define PRCM_CLKLOADCTL_LOAD_DONE               (0x1ul << 1)
+#define PRCM_CLKLOADCTL_LOAD                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_RFCCLKG register  *********************/
+#define PRCM_RFCCLKG_CLK_EN                     (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_VIMSCLKG register  ********************/
+#define PRCM_VIMSCLKG_CLK_EN                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SECDMACLKGR register  *****************/
+#define PRCM_SECDMACLKGR_DMA_CLK_EN             (0x1ul << 8)
+#define PRCM_SECDMACLKGR_TRNG_CLK_EN            (0x1ul << 1)
+#define PRCM_SECDMACLKGR_CRYPTO_CLK_EN          (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SECDMACLKGS register  *****************/
+#define PRCM_SECDMACLKGS_DMA_CLK_EN             (0x1ul << 8)
+#define PRCM_SECDMACLKGS_TRNG_CLK_EN            (0x1ul << 1)
+#define PRCM_SECDMACLKGS_CRYPTO_CLK_EN          (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SECDMACLKGDS register  ****************/
+#define PRCM_SECDMACLKGDS_DMA_CLK_EN            (0x1ul << 8)
+#define PRCM_SECDMACLKGDS_TRNG_CLK_EN           (0x1ul << 1)
+#define PRCM_SECDMACLKGDS_CRYPTO_CLK_EN         (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPIOCLKGR register  *******************/
+#define PRCM_GPIOCLKGR_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPIOCLKGS register  *******************/
+#define PRCM_GPIOCLKGS_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPIOCLKGDS register  ******************/
+#define PRCM_GPIOCLKGDS_CLK_EN                  (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPTCLKGR register  ********************/
+#define PRCM_GPTCLKGR_GPT3_CLK_EN               (0x1ul << 3)
+#define PRCM_GPTCLKGR_GPT2_CLK_EN               (0x1ul << 2)
+#define PRCM_GPTCLKGR_GPT1_CLK_EN               (0x1ul << 1)
+#define PRCM_GPTCLKGR_GPT0_CLK_EN               (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPTCLKGS register  ********************/
+#define PRCM_GPTCLKGS_GPT3_CLK_EN               (0x1ul << 3)
+#define PRCM_GPTCLKGS_GPT2_CLK_EN               (0x1ul << 2)
+#define PRCM_GPTCLKGS_GPT1_CLK_EN               (0x1ul << 1)
+#define PRCM_GPTCLKGS_GPT0_CLK_EN               (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPTCLKGDS register  *******************/
+#define PRCM_GPTCLKGDS_GPT3_CLK_EN              (0x1ul << 3)
+#define PRCM_GPTCLKGDS_GPT2_CLK_EN              (0x1ul << 2)
+#define PRCM_GPTCLKGDS_GPT1_CLK_EN              (0x1ul << 1)
+#define PRCM_GPTCLKGDS_GPT0_CLK_EN              (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2CCLKGR register  ********************/
+#define PRCM_I2CCLKGR_CLK_EN                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2CCLKGS register  ********************/
+#define PRCM_I2CCLKGS_CLK_EN                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2CCLKGDS register  *******************/
+#define PRCM_I2CCLKGDS_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_UARTCLKGR register  *******************/
+#define PRCM_UARTCLKGR_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_UARTCLKGS register  *******************/
+#define PRCM_UARTCLKGS_CLK_EN                   (0x1ul << 0)
+
+/*************  Bit definition for PRCM_UARTCLKGDS register  ******************/
+#define PRCM_UARTCLKGDS_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SSICLKGR register  ********************/
+#define PRCM_SSICLKGR_SSI1_CLK_EN                (0x1ul << 1)
+#define PRCM_SSICLKGR_SSI0_CLK_EN                (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SSICLKGS register  ********************/
+#define PRCM_SSICLKGS_SSI1_CLK_EN                (0x1ul << 1)
+#define PRCM_SSICLKGS_SSI0_CLK_EN                (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_SSICLKGDS register  *******************/
+#define PRCM_SSICLKGDS_SSI1_CLK_EN               (0x1ul << 1)
+#define PRCM_SSICLKGDS_SSI0_CLK_EN               (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SCLKGR register  ********************/
+#define PRCM_I2SCLKGR_CLK_EN                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SCLKGS register  ********************/
+#define PRCM_I2SCLKGS_CLK_EN                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SCLKGDS register  *******************/
+#define PRCM_I2SCLKGDS_CLK_EN                   (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_CPUCLKDIV register  *******************/
+#define PRCM_CPUCLKDIV_RATIO                    (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SBCLKSEL register  ******************/
+#define PRCM_I2SBCLKSEL_SRC                     (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_GPTCLKDIV register  *******************/
+#define PRCM_GPTCLKDIV_RATIO                    (0xful << 0)
+#define PRCM_GPTCLKDIV_RATIO_VAL(x)             (((x) & 0xful) << 0)
+#define PRCM_GPTCLKDIV_RATIO_1                  (0x0ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_2                  (0x1ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_4                  (0x2ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_8                  (0x3ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_16                 (0x4ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_32                 (0x5ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_64                 (0x6ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_128                (0x7ul << 0)
+#define PRCM_GPTCLKDIV_RATIO_256                (0x8ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SCLKCTL register  *******************/
+#define PRCM_I2SCLKCTL_SMPL_ON_POSEDGE          (0x1ul << 3)
+
+#define PRCM_I2SCLKCTL_WCLK_PHASE               (0x3ul << 1)
+#define PRCM_I2SCLKCTL_WCLK_PHASE_SINGLE        (0x0ul << 1)
+#define PRCM_I2SCLKCTL_WCLK_PHASE_DUAL          (0x1ul << 1)
+#define PRCM_I2SCLKCTL_WCLK_PHASE_USER          (0x2ul << 1)
+
+#define PRCM_I2SCLKCTL_EN                       (0x1ul << 0)
+
+
+/*************  Bit definition for PRCM_I2SMCLKDIV register  ******************/
+#define PRCM_I2SMCLKDIV_MDIV                    (0x3fful << 0)
+#define PRCM_I2SMCLKDIV_MDIV_VAL(x)             (((x) & 0x3fful) << 0)
+
+
+/*************  Bit definition for PRCM_I2SBCLKDIV register  ******************/
+#define PRCM_I2SBCLKDIV_BDIV                    (0x3fful << 0)
+#define PRCM_I2SBCLKDIV_BDIV_VAL(x)             (((x) & 0x3fful) << 0)
+
+
+/*************  Bit definition for PRCM_I2SWCLKDIV register  ******************/
+#define PRCM_I2SWCLKDIV_WDIV                    (0xfffful << 0)
+#define PRCM_I2SWCLKDIV_WDIV_VAL(x)             (((x) & 0xfffful) << 0)
+
+
+/*************  Bit definition for PRCM_SWRESET register  *********************/
+#define PRCM_SWRESET_MCU                        (0x1 << 2)
+
+
+/*************  Bit definition for PRCM_WARMRESET register  *******************/
+#define PRCM_WARMRESET_WR_TO_PINRESET           (0x1 << 2)
+#define PRCM_WARMRESET_LOCKUP_STAT              (0x1 << 1)
+#define PRCM_WARMRESET_WDT_STAT                 (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL0 register  **********************/
+#define PRCM_PDCTL0_PERIPH_ON                   (0x1 << 2)
+#define PRCM_PDCTL0_SERIAL_ON                   (0x1 << 1)
+#define PRCM_PDCTL0_RFC_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL0RFC register  *******************/
+#define PRCM_PDCTL0RFC_ON                       (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL0SERIAL register  ****************/
+#define PRCM_PDCTL0SERIAL_ON                    (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL0PERIPH register  ****************/
+#define PRCM_PDCTL0PERIPH_ON                    (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT0 register  *********************/
+#define PRCM_PDSTAT0_PERIPH_ON                  (0x1 << 2)
+#define PRCM_PDSTAT0_SERIAL_ON                  (0x1 << 1)
+#define PRCM_PDSTAT0_RFC_ON                     (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT0RFC register  ******************/
+#define PRCM_PDSTAT0RFC_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT0SERIAL register  ***************/
+#define PRCM_PDSTAT0SERIAL_ON                   (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT0PERIPH register  ***************/
+#define PRCM_PDSTAT0PERIPH_ON                   (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL1 register  **********************/
+#define PRCM_PDCTL1_VIMS_MODE                   (0x1 << 3)
+#define PRCM_PDCTL1_RFC_ON                      (0x1 << 2)
+#define PRCM_PDCTL1_CPU_ON                      (0x1 << 1)
+
+
+/*************  Bit definition for PRCM_PDCTL1CPU register  *******************/
+#define PRCM_PDCTL1CPU_ON                       (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL1RFC register  *******************/
+#define PRCM_PDCTL1RFC_ON                       (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDCTL1VIMS register  ******************/
+#define PRCM_PDCTL1VIMS_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT1 register  *********************/
+#define PRCM_PDSTAT1_BUS_ON                     (0x1 << 4)
+#define PRCM_PDSTAT1_VIMS_MODE                  (0x1 << 3)
+#define PRCM_PDSTAT1_RFC_ON                     (0x1 << 2)
+#define PRCM_PDSTAT1_CPU_ON                     (0x1 << 1)
+
+
+/*************  Bit definition for PRCM_PDSTAT1BUS register  ******************/
+#define PRCM_PDSTAT1BUS_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT1RFC register  ******************/
+#define PRCM_PDSTAT1RFC_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT1CPU register  ******************/
+#define PRCM_PDSTAT1CPU_ON                      (0x1 << 0)
+
+
+/*************  Bit definition for PRCM_PDSTAT1VIMS register  *****************/
+#define PRCM_PDSTAT1VIMS_ON                     (0x1 << 0)
+
+/*************  Bit definition for PRCM_RFCMODESEL register  ******************/
+#define PRCM_RFCMODESEL_CURR                    (0x7 << 0)
+#define PRCM_RFCMODESEL_CURR_VAL(x)             (((x) & 0x7ul) << 0)
+
+
+/*************  Bit definition for PRCM_PWRPROFSTAT register  ****************/
+#define PRCM_PWRPROFSTAT_VALUE                  (0xff << 0)
+#define PRCM_PWRPROFSTAT_VALUE_VAL(x)           (((x) & 0xfful) << 0)
+
+
+/*************  Bit definition for PRCM_RAMRETEN register  *******************/
+#define PRCM_RAMRETEN_RFC                       (0x1 << 2)
+
+#define PRCM_RAMRETEN_VIMS                      (0x3 << 0)
+#define PRCM_RAMRETEN_VIMS_CRAM                 (0x1 << 1)
+#define PRCM_RAMRETEN_VIMS_TRAM                 (0x1 << 0)
+#define PRCM_RAMRETEN_VIMS_RETENTION_DISABLED   (0x0 << 0)
+#define PRCM_RAMRETEN_VIMS_RETENTION_ENABLED    (0x1 << 0)
+#define PRCM_RAMRETEN_VIMS_NO_RESTRICTIONS      (0x3 << 0)
+
+
+/******************************************************************************/
+/*                                                                            */
+/*                                   IOC                                      */
+/*                                                                            */
+/******************************************************************************/
+
+/*************  Bit definition for IOC_IOCFG register  ************************/
+#define IOC_IOCFG_HYST_EN                       (0x1ul << 30)
+#define IOC_IOCFG_IO                            (0x1ul << 29)
+
+#define IOC_IOCFG_WU_CFG                        (0x3ul << 27)
+#define IOC_IOCFG_WU_CFG_NO                     (0x0ul << 27)
+#define IOC_IOCFG_WU_CFG_LOW                    (0x2ul << 27)
+#define IOC_IOCFG_WU_CFG_HIGH                   (0x3ul << 27)
+
+#define IOC_IOCFG_IOMODE                        (0x7ul << 24)
+#define IOC_IOCFG_IOMODE_NORMAL                 (0x0ul << 24)
+#define IOC_IOCFG_IOMODE_INV                    (0x1ul << 24)
+#define IOC_IOCFG_IOMODE_OPENDR                 (0x4ul << 24)
+#define IOC_IOCFG_IOMODE_OPENDR_INV             (0x5ul << 24)
+#define IOC_IOCFG_IOMODE_OPENSRC                (0x6ul << 24)
+#define IOC_IOCFG_IOMODE_OPENSRC_INV            (0x7ul << 24)
+
+#define IOC_IOCFG_EDGE_IRQ_EN                   (0x1ul << 18)
+
+#define IOC_IOCFG_EDGE_DET                      (0x3ul << 16)
+#define IOC_IOCFG_EDGE_DET_NONE                 (0x0ul << 16)
+#define IOC_IOCFG_EDGE_DET_NEGATIVE             (0x1ul << 16)
+#define IOC_IOCFG_EDGE_DET_POSITIVE             (0x2ul << 16)
+#define IOC_IOCFG_EDGE_DET_BOTH                 (0x3ul << 16)
+
+#define IOC_IOCFG_PULL_CTL                      (0x3ul << 13)
+#define IOC_IOCFG_PULL_CTL_DOWN                 (0x1ul << 13)
+#define IOC_IOCFG_PULL_CTL_UP                   (0x2ul << 13)
+#define IOC_IOCFG_PULL_CTL_DIS                  (0x3ul << 13)
+
+#define IOC_IOCFG_SLEW_RED                      (0x1ul << 12)
+
+#define IOC_IOCFG_IOCURR                        (0x3ul << 10)
+#define IOC_IOCFG_IOCURR_2MA                    (0x0ul << 10)
+#define IOC_IOCFG_IOCURR_4MA                    (0x1ul << 10)
+#define IOC_IOCFG_IOCURR_4_8MA                  (0x2ul << 10)
+
+#define IOC_IOCFG_IOSTR                         (0x3ul << 8)
+#define IOC_IOCFG_IOSTR_AUTO                    (0x0ul << 8)
+#define IOC_IOCFG_IOSTR_MIN                     (0x1ul << 8)
+#define IOC_IOCFG_IOSTR_MED                     (0x2ul << 8)
+#define IOC_IOCFG_IOSTR_MAX                     (0x3ul << 8)
+
+#define IOC_IOCFG_PORT_ID                       (0x1fful << 0)
+#define IOC_IOCFG_PORT_ID_GPIO                  (0x0 << 0)
+
+#define IOC_IOCFG_PORT_ID_AON_SCS               (1 << 0)
+#define IOC_IOCFG_PORT_ID_AON_SCK               (2 << 0)
+#define IOC_IOCFG_PORT_ID_AON_SDI               (3 << 0)
+#define IOC_IOCFG_PORT_ID_AON_SDO               (4 << 0)
+#define IOC_IOCFG_PORT_ID_AON_CLK32K            (7 << 0)
+
+#define IOC_IOCFG_PORT_ID_AUX_IO                (8 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_SSI0_RX           (9 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI0_TX           (10 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI0_FSS          (11 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI0_CLK          (12 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_I2C_MSSDA         (13 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_I2C_MSSCL         (14 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_UART0_RX          (15 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_UART0_TX          (16 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_UART0_CTS         (17 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_UART0_RTS         (18 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM0        (23 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM1        (24 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM2        (25 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM3        (26 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM4        (27 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM5        (28 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM6        (29 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_GPTM_GPTM7        (30 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_CM3_SWV           (32 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_SSI1_RX           (33 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI1_TX           (34 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI1_FSS          (35 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_SSI1_CLK          (36 << 0)
+
+#define IOC_IOCFG_PORT_ID_MCU_I2S_AD0           (37 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_I2S_AD1           (38 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_I2S_WCLK          (39 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_I2S_BCLK          (40 << 0)
+#define IOC_IOCFG_PORT_ID_MCU_I2S_MCLK          (41 << 0)
+
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL0         (46 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_GPO0              (47 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_GPO1              (48 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_GPO2              (49 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_GPO3              (50 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL1         (51 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL2         (52 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL3         (53 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL4         (54 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL5         (55 << 0)
+#define IOC_IOCFG_PORT_ID_RFC_INTERNAL6         (56 << 0)
 
 
 /** @} */ /* End of group Device_Peripheral_Registers */
