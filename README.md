@@ -3,8 +3,8 @@ Unofficial TI CC26x0 CMSIS Library
 
 Supported MCU: CC2620, CC2630, CC2640, CC2650.
 
-Only register and IRQn definitions.
+Register and IRQn definitions.
 
 Bit definitions:
 
-PRCM, IOC, GPIO (not required), UART
+AON_SYSCTL, PRCM, IOC, GPIO (not required), UART

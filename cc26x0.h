@@ -1263,8 +1263,54 @@ typedef struct
 
 
 /******************************************************************************/
-/*                         Peripheral Registers_Bits_Definition               */
+/*                    Peripheral Registers_Bits_Definition                    */
 /******************************************************************************/
+
+/******************************************************************************/
+/*                                                                            */
+/*                               AON_SYSCTL                                   */
+/*                                                                            */
+/******************************************************************************/
+
+/*************  Bit definition for AON_SYSCTL_PWRCTL register  ****************/
+#define AON_SYSCTL_PWRCTL_DCDC_ACTIVE           (0x1ul << 2)
+#define AON_SYSCTL_PWRCTL_EXT_REG_MODE          (0x1ul << 1)
+#define AON_SYSCTL_PWRCTL_DCDC_EN               (0x1ul << 0)
+
+
+/*************  Bit definition for AON_SYSCTL_RESETCTL register  **************/
+#define AON_SYSCTL_RESETCTL_SYSRESET            (0x1ul << 31)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_1_CLR      (0x1ul << 25)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_0_CLR      (0x1ul << 24)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_1_SET      (0x1ul << 17)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_0_SET      (0x1ul << 16)
+#define AON_SYSCTL_RESETCTL_WU_FROM_SD          (0x1ul << 15)
+#define AON_SYSCTL_RESETCTL_GPIO_WU_FROM_SD     (0x1ul << 14)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_1          (0x1ul << 13)
+#define AON_SYSCTL_RESETCTL_BOOT_DET_0          (0x1ul << 12)
+#define AON_SYSCTL_RESETCTL_VDDS_LOSS_EN_OVR    (0x1ul << 11)
+#define AON_SYSCTL_RESETCTL_VDDR_LOSS_EN_OVR    (0x1ul << 10)
+#define AON_SYSCTL_RESETCTL_VDD_LOSS_EN_OVR     (0x1ul << 9)
+#define AON_SYSCTL_RESETCTL_VDDS_LOSS_EN        (0x1ul << 7)
+#define AON_SYSCTL_RESETCTL_VDDR_LOSS_EN        (0x1ul << 6)
+#define AON_SYSCTL_RESETCTL_VDD_LOSS_EN         (0x1ul << 5)
+#define AON_SYSCTL_RESETCTL_CLK_LOSS_EN         (0x1ul << 4)
+
+#define AON_SYSCTL_RESETCTL_RESET_SRC           (0x7ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_POWER     (0x0ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_PIN       (0x1ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_BOD_VDDS  (0x2ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_BOD_VDD   (0x3ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_BOD_VDDR  (0x4ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_CLOCK     (0x5ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_SYSRESET  (0x6ul << 1)
+#define AON_SYSCTL_RESETCTL_RESET_SRC_RPCM      (0x7ul << 1)
+
+
+/*************  Bit definition for AON_SYSCTL_SLEEPCTL register  **************/
+#define AON_SYSCTL_SLEEPCTL_IO_PAD_SLEEP_DIS    (0x1ul << 0)
+
+
 
 /******************************************************************************/
 /*                                                                            */
@@ -1725,11 +1771,14 @@ typedef struct
 
 /*************  Bit definition for UART_LCRH register  ************************/
 #define UART_LCRH_SPS                           (0x1ul << 7)
+
 #define UART_LCRH_WLEN                          (0x3ul << 5)
 #define UART_LCRH_WLEN_5                        (0x0ul << 5)
 #define UART_LCRH_WLEN_6                        (0x1ul << 5)
 #define UART_LCRH_WLEN_7                        (0x2ul << 5)
 #define UART_LCRH_WLEN_8                        (0x3ul << 5)
+#define UART_LCRH_WLEN_VAL(x)                   (((x) & 0x3) << 5)
+
 #define UART_LCRH_FEN                           (0x1ul << 4)
 #define UART_LCRH_STP2                          (0x1ul << 3)
 #define UART_LCRH_EPS                           (0x1ul << 2)
