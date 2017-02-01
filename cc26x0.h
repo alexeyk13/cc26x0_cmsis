@@ -1578,7 +1578,7 @@ typedef struct
 
 /*************  Bit definition for IOC_IOCFG register  ************************/
 #define IOC_IOCFG_HYST_EN                       (0x1ul << 30)
-#define IOC_IOCFG_IO                            (0x1ul << 29)
+#define IOC_IOCFG_IE                            (0x1ul << 29)
 
 #define IOC_IOCFG_WU_CFG                        (0x3ul << 27)
 #define IOC_IOCFG_WU_CFG_NO                     (0x0ul << 27)
@@ -1676,6 +1676,141 @@ typedef struct
 #define IOC_IOCFG_PORT_ID_RFC_INTERNAL4         (54 << 0)
 #define IOC_IOCFG_PORT_ID_RFC_INTERNAL5         (55 << 0)
 #define IOC_IOCFG_PORT_ID_RFC_INTERNAL6         (56 << 0)
+
+
+/******************************************************************************/
+/*                                                                            */
+/*                                  UART                                      */
+/*                                                                            */
+/******************************************************************************/
+
+/*************  Bit definition for UART_DR register  **************************/
+#define UART_DR_OE                              (0x1ul << 11)
+#define UART_DR_BE                              (0x1ul << 10)
+#define UART_DR_PE                              (0x1ul << 9)
+#define UART_DR_FE                              (0x1ul << 8)
+#define UART_DR_DATA                            (0xfful << 0)
+
+
+/*************  Bit definition for UART_RSR register  *************************/
+#define UART_RSR_OE                             (0x1ul << 3)
+#define UART_RSR_BE                             (0x1ul << 2)
+#define UART_RSR_PE                             (0x1ul << 1)
+#define UART_RSR_FE                             (0x1ul << 0)
+
+
+/*************  Bit definition for UART_ECR register  *************************/
+#define UART_ECR_OE                             (0x1ul << 3)
+#define UART_ECR_BE                             (0x1ul << 2)
+#define UART_ECR_PE                             (0x1ul << 1)
+#define UART_ECR_FE                             (0x1ul << 0)
+
+
+/*************  Bit definition for UART_FR register  **************************/
+#define UART_FR_TXFE                            (0x1ul << 7)
+#define UART_FR_RXFF                            (0x1ul << 6)
+#define UART_FR_TXFF                            (0x1ul << 5)
+#define UART_FR_RXFE                            (0x1ul << 4)
+#define UART_FR_BUSY                            (0x1ul << 3)
+#define UART_FR_CTS                             (0x1ul << 0)
+
+
+/*************  Bit definition for UART_IBRD register  ************************/
+#define UART_IBRD_DIVINT                        (0xfffful << 0)
+
+
+/*************  Bit definition for UART_FBRD register  ************************/
+#define UART_FBRD_DIVFRAC                       (0x3ful << 0)
+
+
+/*************  Bit definition for UART_LCRH register  ************************/
+#define UART_LCRH_SPS                           (0x1ul << 7)
+#define UART_LCRH_WLEN                          (0x3ul << 5)
+#define UART_LCRH_WLEN_5                        (0x0ul << 5)
+#define UART_LCRH_WLEN_6                        (0x1ul << 5)
+#define UART_LCRH_WLEN_7                        (0x2ul << 5)
+#define UART_LCRH_WLEN_8                        (0x3ul << 5)
+#define UART_LCRH_FEN                           (0x1ul << 4)
+#define UART_LCRH_STP2                          (0x1ul << 3)
+#define UART_LCRH_EPS                           (0x1ul << 2)
+#define UART_LCRH_PEN                           (0x1ul << 1)
+#define UART_LCRH_BRK                           (0x1ul << 0)
+
+
+/*************  Bit definition for UART_CTL register  *************************/
+#define UART_CTL_CTSEN                          (0x1ul << 15)
+#define UART_CTL_RTSEN                          (0x1ul << 14)
+#define UART_CTL_RTS                            (0x1ul << 11)
+#define UART_CTL_RXE                            (0x1ul << 9)
+#define UART_CTL_TXE                            (0x1ul << 8)
+#define UART_CTL_LBE                            (0x1ul << 7)
+#define UART_CTL_UARTEN                         (0x1ul << 0)
+
+
+/*************  Bit definition for UART_IFLS register  ************************/
+#define UART_IFLS_RXSEL                         (0x7ul << 3)
+#define UART_IFLS_RXSEL_1_8                     (0x0ul << 3)
+#define UART_IFLS_RXSEL_1_4                     (0x1ul << 3)
+#define UART_IFLS_RXSEL_1_2                     (0x2ul << 3)
+#define UART_IFLS_RXSEL_3_4                     (0x3ul << 3)
+#define UART_IFLS_RXSEL_7_8                     (0x4ul << 3)
+
+#define UART_IFLS_TXSEL                         (0x7ul << 0)
+#define UART_IFLS_TXSEL_1_8                     (0x0ul << 0)
+#define UART_IFLS_TXSEL_1_4                     (0x1ul << 0)
+#define UART_IFLS_TXSEL_1_2                     (0x2ul << 0)
+#define UART_IFLS_TXSEL_3_4                     (0x3ul << 0)
+#define UART_IFLS_TXSEL_7_8                     (0x4ul << 0)
+
+
+/*************  Bit definition for UART_IMSC register  ************************/
+#define UART_IMSC_OEIM                          (0x1ul << 10)
+#define UART_IMSC_BEIM                          (0x1ul << 9)
+#define UART_IMSC_PEIM                          (0x1ul << 8)
+#define UART_IMSC_FEIM                          (0x1ul << 7)
+#define UART_IMSC_RTIM                          (0x1ul << 6)
+#define UART_IMSC_TXIM                          (0x1ul << 5)
+#define UART_IMSC_RXIM                          (0x1ul << 4)
+#define UART_IMSC_CTSMIM                        (0x1ul << 1)
+
+
+/*************  Bit definition for UART_RIS register  *************************/
+#define UART_RIS_OERIS                          (0x1ul << 10)
+#define UART_RIS_BERIS                          (0x1ul << 9)
+#define UART_RIS_PERIS                          (0x1ul << 8)
+#define UART_RIS_FERIS                          (0x1ul << 7)
+#define UART_RIS_RTRIS                          (0x1ul << 6)
+#define UART_RIS_TXRIS                          (0x1ul << 5)
+#define UART_RIS_RXRIS                          (0x1ul << 4)
+#define UART_RIS_CTSMRIS                        (0x1ul << 1)
+
+
+/*************  Bit definition for UART_MIS register  *************************/
+#define UART_MIS_OEMIS                          (0x1ul << 10)
+#define UART_MIS_BEMIS                          (0x1ul << 9)
+#define UART_MIS_PEMIS                          (0x1ul << 8)
+#define UART_MIS_FEMIS                          (0x1ul << 7)
+#define UART_MIS_RTMIS                          (0x1ul << 6)
+#define UART_MIS_TXMIS                          (0x1ul << 5)
+#define UART_MIS_RXMIS                          (0x1ul << 4)
+#define UART_MIS_CTSMMIS                        (0x1ul << 1)
+
+
+/*************  Bit definition for UART_ICR register  *************************/
+#define UART_ICR_OEIC                           (0x1ul << 10)
+#define UART_ICR_BEIC                           (0x1ul << 9)
+#define UART_ICR_PEIC                           (0x1ul << 8)
+#define UART_ICR_FEIC                           (0x1ul << 7)
+#define UART_ICR_RTIC                           (0x1ul << 6)
+#define UART_ICR_TXIC                           (0x1ul << 5)
+#define UART_ICR_RXIC                           (0x1ul << 4)
+#define UART_ICR_CTSMIC                         (0x1ul << 1)
+
+
+/*************  Bit definition for UART_DMACTL register  **********************/
+#define UART_DMACTL_DMAONERR                    (0x1ul << 2)
+#define UART_DMACTL_TXDMAE                      (0x1ul << 1)
+#define UART_DMACTL_RXDMAE                      (0x1ul << 0)
 
 
 /** @} */ /* End of group Device_Peripheral_Registers */

@@ -7,4 +7,4 @@ Only register and IRQn definitions.
 
 Bit definitions:
 
-PRCM, IOC, GPIO (not required)
+PRCM, IOC, GPIO (not required), UART
